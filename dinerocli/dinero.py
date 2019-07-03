@@ -6,6 +6,7 @@ import os
 
 from .contacts import contacts_arguments
 from .organizations import organizations_arguments
+from .invoices import invoices_arguments
 
 def global_arguments(subparser, config):
     # global arguments
@@ -46,6 +47,7 @@ def main():
     # add subcommands
     contacts_arguments(subparsers, config, global_arguments)
     organizations_arguments(subparsers, config, global_arguments)
+    invoices_arguments(subparsers, config, global_arguments)
 
     # parse arguments
     args = parser.parse_args(remaining)
