@@ -11,6 +11,7 @@ import json
 from .exceptions import NotConnectedError, NotConfiguredError, NotAuthenticatedError
 from .contacts import Contacts, Contact
 from .organizations import Organizations, Organization
+from .invoices import Invoices, Invoice
 
 JSONType = Union[None, bool, int, float, str, List[Any], Dict[str, Any]]
 logger = logging.getLogger(__name__)
@@ -55,6 +56,7 @@ class Dinero(object):
 
         self.organizations = Organizations(self)
         self.contacts = Contacts(self)
+        self.invoices = Invoices(self)
 
         # set default organization if only one is found, or name/id is passed
         if len(self.organizations.list()) == 1 or organization_name or organization_id:
